@@ -1,0 +1,56 @@
+import dependencies.Versions
+import dependencies.Dependencies
+
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion Versions.SupportAndroidLibs.compileSdk
+    defaultConfig {
+        applicationId "com.pentab.viaplaysections"
+        minSdkVersion Versions.SupportAndroidLibs.minSdk
+        targetSdkVersion Versions.SupportAndroidLibs.targetSdk
+        versionCode Versions.versionCode
+        versionName Versions.versionName
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', "baseURL", baseURL
+        resValue 'string', "baseURL", baseURL
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    sourceSets {
+        main.java.srcDirs += 'src/main/kotlin'
+    }
+}
+
+androidExtensions {
+    experimental = true
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+
+    implementation Dependencies.supportAndroidLibs
+    implementation Dependencies.androidArchComponents
+    implementation Dependencies.kotlin
+    implementation Dependencies.libraries
+
+    kapt Dependencies.annotations
+}
