@@ -1,2 +1,3 @@
 # ViaPlaySections
-Demo for showing some data from api and save it offline .
+Simple Android application for showing data from api and save it in the db
+
