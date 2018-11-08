@@ -44,7 +44,8 @@ class SectionsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListen
 
         observeData()
 
-        requestSections()
+        if (sectionsViewModel.getSections().value.isNullOrEmpty())
+            requestSections()
     }
 
     private fun observeData() {
