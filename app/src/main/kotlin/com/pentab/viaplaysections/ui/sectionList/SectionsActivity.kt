@@ -20,7 +20,6 @@ class SectionsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListen
 
     private lateinit var sectionsAdapter: SectionsAdapter
     private lateinit var sectionsViewModel: SectionsViewModel
-    private lateinit var linearLayoutManager: LinearLayoutManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -35,7 +34,7 @@ class SectionsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListen
 
         sections_container.setOnRefreshListener(this@SectionsActivity)
 
-        linearLayoutManager = LinearLayoutManager(
+        val linearLayoutManager = LinearLayoutManager(
             this@SectionsActivity,
             RecyclerView.VERTICAL, false
         )
@@ -49,9 +48,6 @@ class SectionsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListen
     }
 
     private fun observeData() {
-        sectionsViewModel.getErrorMessage()
-            .observe(this, Observer { it?.let { showError(it) } })
-
         sectionsViewModel.getLoading()
             .observe(this, Observer { it?.let { updateRefreshLayout(it) } })
 
@@ -76,12 +72,6 @@ class SectionsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListen
 
     private fun updateRefreshLayout(isRefreshing: Boolean) {
         this.sections_container.isRefreshing = isRefreshing
-    }
-
-    private fun showError(errorMessage: String) {
-        sections_ListView.visibility = View.GONE
-        empty_list.text = errorMessage
-        empty_list.visibility = View.VISIBLE
     }
 
     private fun requestSections() {

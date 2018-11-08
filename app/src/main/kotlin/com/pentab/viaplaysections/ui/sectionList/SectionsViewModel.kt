@@ -16,7 +16,6 @@ class SectionsViewModel(private val repository: SectionRepository) : ViewModel()
 
     private val sections: MutableLiveData<List<Section>> = MutableLiveData()
     private val isLoading: MutableLiveData<Boolean> = MutableLiveData()
-    private val errorMessage: MutableLiveData<String> = MutableLiveData()
     private val compositeDisposable = CompositeDisposable()
 
     init {
@@ -33,7 +32,6 @@ class SectionsViewModel(private val repository: SectionRepository) : ViewModel()
                 .doOnError { this.isLoading.value = false }
                 .subscribe(
                     { sections.value = it },
-                    { errorMessage.value = it.message }
                 )
         )
     }
@@ -42,9 +40,6 @@ class SectionsViewModel(private val repository: SectionRepository) : ViewModel()
         return isLoading
     }
 
-    fun getErrorMessage(): MutableLiveData<String> {
-        return errorMessage
-    }
 
     fun getSections(): MutableLiveData<List<Section>> {
         return sections
