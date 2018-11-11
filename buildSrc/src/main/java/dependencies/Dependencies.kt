@@ -40,7 +40,10 @@ object Dependencies {
         "com.squareup.retrofit2:retrofit-mock:${Versions.Libraries.retrofit}",
 
         // Gson
-        "com.squareup.retrofit2:converter-gson:${Versions.Libraries.retrofit}"
+        "com.squareup.retrofit2:converter-gson:${Versions.Libraries.retrofit}",
+
+        //Dagger2
+        "com.google.dagger:dagger:${Versions.Libraries.dagger}"
     )
 
     val annotations = arrayOf(
@@ -48,6 +51,21 @@ object Dependencies {
         "androidx.lifecycle:lifecycle-compiler:${Versions.SupportAndroidLibs.androidArcComponents}",
 
         // Room
-        "androidx.room:room-compiler:${Versions.SupportAndroidLibs.androidArcComponents}"
+        "androidx.room:room-compiler:${Versions.SupportAndroidLibs.androidArcComponents}",
+
+        //Dagger 2
+        "com.google.dagger:dagger-compiler:${Versions.Libraries.dagger}"
     )
+
+    val compileOnly = arrayOf(
+        "javax.annotation:jsr250-api:${Versions.Libraries.javaAnnotation}"
+    )
+
+    val annotationTest = arrayOf(
+        "com.google.dagger:dagger:${Versions.Libraries.dagger}"
+    )
+    val testImplementation = arrayOf(
+        "com.google.dagger:dagger:${Versions.Libraries.dagger}"
+    )
+
 }

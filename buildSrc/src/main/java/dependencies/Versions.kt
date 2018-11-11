@@ -34,5 +34,11 @@ object Versions {
 
         // Gson
         const val gson = "2.8.2"
+
+        //Dagger 2
+        const val dagger = "2.15"
+
+        //Java annotations
+        const val javaAnnotation = "1.0"
     }
 }

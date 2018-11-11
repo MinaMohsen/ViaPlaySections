@@ -8,29 +8,35 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
-import com.pentab.viaplaysections.Injection
 import com.pentab.viaplaysections.R
+import com.pentab.viaplaysections.ViaPlayApp
 import com.pentab.viaplaysections.data.entities.Section
+import com.pentab.viaplaysections.di.view.SectionsModule
+import com.pentab.viaplaysections.ui.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_sections.*
+import javax.inject.Inject
 
 /*
  * SectionsActivity for sections list.
  */
 class SectionsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListener {
 
-    private lateinit var sectionsAdapter: SectionsAdapter
+    @Inject
+    lateinit var sectionsAdapter: SectionsAdapter
+
+    @Inject
+    lateinit var viewModelFactory: ViewModelFactory
+
     private lateinit var sectionsViewModel: SectionsViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_sections)
 
-        sectionsViewModel = ViewModelProviders.of(
-            this,
-            Injection.provideViewModelFactory(this)
-        ).get(SectionsViewModel::class.java)
+        configureDagger()
 
-        sectionsAdapter = SectionsAdapter()
+        sectionsViewModel = ViewModelProviders
+            .of(this, viewModelFactory)[SectionsViewModel::class.java]
 
         sections_container.setOnRefreshListener(this@SectionsActivity)
 
@@ -46,6 +52,11 @@ class SectionsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListen
 
         if (sectionsViewModel.getSections().value.isNullOrEmpty())
             requestSections()
+    }
+
+    private fun configureDagger() {
+        (this.application as ViaPlayApp).appComponent
+            .add(SectionsModule()).inject(this)
     }
 
     private fun observeData() {

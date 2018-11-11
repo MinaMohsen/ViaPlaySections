@@ -53,4 +53,10 @@ dependencies {
     implementation Dependencies.libraries
 
     kapt Dependencies.annotations
+
+    compileOnly Dependencies.compileOnly
+
+    kaptTest Dependencies.annotationTest
+
+    testImplementation Dependencies.testImplementation
 }
