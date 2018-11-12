@@ -11,7 +11,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.pentab.viaplaysections.R
 import com.pentab.viaplaysections.ViaPlayApp
 import com.pentab.viaplaysections.data.entities.Section
-import com.pentab.viaplaysections.di.view.SectionsModule
+import com.pentab.viaplaysections.di.module.view.SectionsModule
 import com.pentab.viaplaysections.ui.ViewModelFactory
 import kotlinx.android.synthetic.main.activity_sections.*
 import javax.inject.Inject

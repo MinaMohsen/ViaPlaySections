@@ -1,4 +1,4 @@
-package com.pentab.viaplaysections.di.view
+package com.pentab.viaplaysections.di.module.view
 
 import com.pentab.viaplaysections.di.scope.ActivityScope
 import com.pentab.viaplaysections.ui.sectionList.SectionsAdapter

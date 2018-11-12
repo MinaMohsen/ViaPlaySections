@@ -1,4 +1,4 @@
-package com.pentab.viaplaysections.di
+package com.pentab.viaplaysections.di.module
 
 import dagger.Module
 import dagger.Provides

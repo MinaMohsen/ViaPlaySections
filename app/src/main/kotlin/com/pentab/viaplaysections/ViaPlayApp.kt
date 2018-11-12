@@ -1,9 +1,11 @@
 package com.pentab.viaplaysections
 
 import android.app.Application
-import com.pentab.viaplaysections.di.*
 import com.pentab.viaplaysections.di.component.AppComponent
 import com.pentab.viaplaysections.di.component.DaggerAppComponent
+import com.pentab.viaplaysections.di.module.NetModule
+import com.pentab.viaplaysections.di.module.RepositoryModule
+import com.pentab.viaplaysections.di.module.RxJavaModule
 
 open class ViaPlayApp: Application() {
 

@@ -1,4 +1,4 @@
-package com.pentab.viaplaysections.di
+package com.pentab.viaplaysections.di.module
 
 import android.content.Context
 import com.pentab.viaplaysections.data.api.ViaPlayService

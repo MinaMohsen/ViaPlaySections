@@ -1,7 +1,8 @@
-package com.pentab.viaplaysections.di
+package com.pentab.viaplaysections.di.module
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.pentab.viaplaysections.di.module.ViewModelKey
 import com.pentab.viaplaysections.ui.ViewModelFactory
 import com.pentab.viaplaysections.ui.sectionList.SectionsViewModel
 import dagger.Binds

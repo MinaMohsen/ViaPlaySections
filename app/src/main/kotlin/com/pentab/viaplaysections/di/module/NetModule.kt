@@ -1,6 +1,5 @@
-package com.pentab.viaplaysections.di
+package com.pentab.viaplaysections.di.module
 
-import com.google.gson.Gson
 import com.pentab.viaplaysections.data.api.ViaPlayService
 import dagger.Module
 import dagger.Provides

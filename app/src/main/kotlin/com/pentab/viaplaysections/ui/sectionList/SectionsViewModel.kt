@@ -8,8 +8,8 @@ import io.reactivex.Scheduler
 import io.reactivex.disposables.CompositeDisposable
 import javax.inject.Inject
 import javax.inject.Named
-import com.pentab.viaplaysections.di.SUBSCRIBER_ON
-import com.pentab.viaplaysections.di.OBSERVER_ON
+import com.pentab.viaplaysections.di.module.SUBSCRIBER_ON
+import com.pentab.viaplaysections.di.module.OBSERVER_ON
 
 
 /*

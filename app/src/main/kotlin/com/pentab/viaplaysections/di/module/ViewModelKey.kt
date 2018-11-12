@@ -1,4 +1,4 @@
-package com.pentab.viaplaysections.di
+package com.pentab.viaplaysections.di.module
 
 import androidx.lifecycle.ViewModel
 import dagger.MapKey
