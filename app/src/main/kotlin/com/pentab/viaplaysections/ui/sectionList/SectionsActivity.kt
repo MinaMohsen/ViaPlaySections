@@ -50,7 +50,7 @@ class SectionsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListen
 
         observeData()
 
-        if (sectionsViewModel.getSections().value.isNullOrEmpty())
+        if (sectionsViewModel.sectionsData.value.isNullOrEmpty())
             requestSections()
     }
 
@@ -60,10 +60,10 @@ class SectionsActivity : AppCompatActivity(), SwipeRefreshLayout.OnRefreshListen
     }
 
     private fun observeData() {
-        sectionsViewModel.getLoading()
+        sectionsViewModel.isLoading
             .observe(this, Observer { it?.let { updateRefreshLayout(it) } })
 
-        sectionsViewModel.getSections()
+        sectionsViewModel.sectionsData
             .observe(this, Observer { it?.let { updateUI(it) } })
     }
 

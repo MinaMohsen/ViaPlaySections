@@ -30,10 +30,11 @@ abstract class SectionDatabase : RoomDatabase() {
             }
 
         private fun buildDatabase(context: Context) =
+            // allow main thread queries only for testing
             Room.databaseBuilder(
                 context.applicationContext,
                 SectionDatabase::class.java,
                 "Viaplay.db"
-            ).build()
+            ).allowMainThreadQueries().build()
     }
 }

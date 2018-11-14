@@ -34,6 +34,13 @@ android {
     sourceSets {
         main.java.srcDirs += 'src/main/kotlin'
     }
+
+    testOptions {
+        animationsDisabled = true
+        unitTests {
+            includeAndroidResources = true
+        }
+    }
 }
 
 androidExtensions {
@@ -46,6 +53,10 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test:runner:1.1.0'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0'
+    testImplementation 'androidx.test:core:1.0.0'
+    testImplementation 'com.squareup.okhttp:mockwebserver:2.7.5'
+    testImplementation 'android.arch.core:core-testing:1.1.1'
+    testImplementation 'org.robolectric:robolectric:3.8'
 
     implementation Dependencies.supportAndroidLibs
     implementation Dependencies.androidArchComponents

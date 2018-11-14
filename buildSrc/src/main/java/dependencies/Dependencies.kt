@@ -21,7 +21,9 @@ object Dependencies {
     )
 
     val kotlin = arrayOf(
-        "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.Kotlin.std}"
+        "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.Kotlin.std}",
+        "org.jetbrains.kotlin:kotlin-reflect:${Versions.Kotlin.std}",
+        "org.jetbrains.kotlin:kotlin-test-junit:${Versions.Kotlin.std}"
     )
 
 
